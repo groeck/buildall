@@ -1,0 +1,31 @@
+# Copy this file to "config" and edit these options to appropriate
+# values for your local setup.
+
+
+# Where are the various source trees
+BINUTILS_SRC=/home/groeck/src/buildall-dl/binutils-2.27
+GCC_SRC=/home/groeck/src/buildall-dl/gcc-5.4.0
+# Only if you want to build kernels, ignore otherwise:
+# KERNEL_SRC=/home/groeck/src/linux-staging
+
+# Where to install the cross toolchains
+PREFIX=/opt/kernel/gcc-5.4.0-nolibc
+
+
+# Extra configure flags
+EXTRA_BINUTILS_CONF=""
+EXTRA_GCC_CONF="--with-gmp=/home/groeck/src/buildall-dl/gmp-6.1.1 --with-mpfr=/home/groeck/src/buildall-dl/mpfr-3.1.4"
+# EXTRA_GCC_CONF="--with-mpfr --with-gmp"
+# Ex.: EXTRA_GCC_CONF="--with-mpfr=/somewhere/mpfr-2.4.1 --with-gmp=/somewhere/gmp-4.2.4"
+
+# Options for make
+MAKEOPTS="-j20"
+# Example: MAKEOPTS=-j9
+
+# Compiler self-checks, use "release" for a fast compiler, use "yes,rtl,tree"
+# for lots of checking
+CHECKING=release
+#CHECKING=yes,rtl,tree
+
+# Which echo to use.  Should support -e
+ECHO=/bin/echo
