@@ -3,6 +3,11 @@
 # Copyright (C) 2007-2017 Segher Boessenkool <segher@kernel.crashing.org>
 # Released under the terms of the GNU GPL, version 2
 
+if [ ! -x timert ]
+then
+    make
+fi
+
 BDIR=$( (cd `dirname $0` ; pwd))
 . $BDIR/config
 
