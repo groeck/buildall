@@ -3,14 +3,13 @@
 
 
 # Where are the various source trees
-BINUTILS_SRC=/home/groeck/src/buildall-dl/binutils-2.27
-GCC_SRC=/home/groeck/src/buildall-dl/gcc-5.4.0
+BINUTILS_SRC=/home/groeck/src/buildall-dl/binutils-2.28
+GCC_SRC=/home/groeck/src/buildall-dl/gcc-6.3.0
 # Only if you want to build kernels, ignore otherwise:
 # KERNEL_SRC=/home/groeck/src/linux-staging
 
 # Where to install the cross toolchains
-PREFIX=/opt/kernel/gcc-5.4.0-nolibc
-
+PREFIX=/home/groeck/tmp/buildall/gcc-6.3.0-nolibc
 
 # Extra configure flags
 EXTRA_BINUTILS_CONF=""
