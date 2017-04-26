@@ -13,10 +13,10 @@ fatal() {
 	exit $1
 }
 
-
 case $TARGET in
-	ia64-*)		TARGET_GCC_CONF=--with-system-libunwind ;;
-	powerpc64le-*)	TARGET_GCC_CONF=--disable-multilib
+	arc-*)		TARGET_GCC_CONF="--with-cpu=arc700";;
+	ia64-*)		TARGET_GCC_CONF="--with-system-libunwind";;
+	powerpc64le-*)	TARGET_GCC_CONF="--disable-multilib";;
 esac
 
 
@@ -34,7 +34,7 @@ $ECHO -ne "       gcc:" && \
 	--disable-libatomic --disable-libcc1 --disable-libmpx \
 	--enable-checking=$CHECKING \
 	$TARGET_GCC_CONF $EXTRA_GCC_CONF && \
-../../timert build ../log-gcc-build make $MAKEOPTS && \
-../../timert install ../log-gcc-install make install && \
+../../timert build ../log-gcc-build make $MAKEOPTS all-gcc && \
+../../timert install ../log-gcc-install make install-gcc && \
 $ECHO \
 ) || fatal 102
