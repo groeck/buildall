@@ -6,10 +6,6 @@
 BDIR=$( (cd `dirname $0` ; pwd))
 . $BDIR/config
 
-
-export PATH=$PREFIX/bin:$PATH
-
-
 BUILD_BINUTILS=no
 BUILD_GCC=no
 BUILD_KERNEL=no
@@ -27,7 +23,6 @@ case $BUILD_BINUTILS$BUILD_GCC$BUILD_KERNEL in
 		BUILD_GCC=yes;
 		BUILD_KERNEL=yes
 esac
-
 
 ARCH=$1
 DEFCONFIG=${2:-defconfig}
@@ -61,6 +56,8 @@ case $ARCH in
 	*)		TARGET=$ARCH-linux ;;
 esac
 
+PREFIX="${PREFIX}/${TARGET}"
+export PATH=$PREFIX/bin:$PATH
 
 $ECHO "Building $ARCH... (target $TARGET)"
 mkdir $ARCH 2>/dev/null
@@ -75,9 +72,7 @@ case $ARCH in
 	shnommu)	ARCH=sh ;;
 esac
 
-
 export ARCH TARGET DEFCONFIG
-
 
 case $BUILD_BINUTILS in
 	yes) $BDIR/build-binutils || exit 101
