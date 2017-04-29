@@ -7,19 +7,35 @@
 BDIR=$( (cd `dirname $0` ; pwd))
 . $BDIR/config
 
-PREFIX=${PREFIX}/${TARGET}
+PREFIX=${PREFIX}/${ARCH}
 
 fatal() {
 	$ECHO -e "  \033[31mFAILED\033[0m"
 	exit $1
 }
 
+EXTRA_BUILDTARGET="all-target-libgcc"
+EXTRA_INSTALLTARGET="install-target-libgcc"
+KARCH=""
+
 case $TARGET in
 	arc-*)		TARGET_GCC_CONF="--with-cpu=arc700";;
+	arcv2-*)	TARGET_GCC_CONF="--with-cpu=archs";;
 	ia64-*)		TARGET_GCC_CONF="--with-system-libunwind";;
 	powerpc64le-*)	TARGET_GCC_CONF="--disable-multilib";;
+	m68k-*)		KARCH="m68k";;
+	tilegx-*|tilepro-*)
+			KARCH="tile";;
 esac
 
+# If necessary build and install kernel headers
+HEADERS="--without-headers"
+if [ -n "${KARCH}" -a -n "${KERNEL_SRC}" ]
+then
+	make -C $KERNEL_SRC ARCH=${KARCH} INSTALL_HDR_PATH=${PREFIX} \
+		headers_install >/dev/null || fatal 102
+	HEADERS="--with-headers=${PREFIX}/include"
+fi
 
 mkdir gcc 2>/dev/null
 ( \
@@ -28,14 +44,14 @@ $ECHO -ne "       gcc:" && \
 ../../timert configure ../log-gcc-configure \
 	$GCC_SRC/configure \
 	--target=$TARGET --enable-targets=all --prefix=$PREFIX \
-	--enable-languages=c --without-headers --disable-bootstrap \
+	--enable-languages=c ${HEADERS} --disable-bootstrap \
 	--disable-nls --disable-threads --disable-shared \
 	--disable-libmudflap --disable-libssp --disable-libgomp \
 	--disable-decimal-float --disable-libquadmath \
 	--disable-libatomic --disable-libcc1 --disable-libmpx \
 	--enable-checking=$CHECKING \
 	$TARGET_GCC_CONF $EXTRA_GCC_CONF && \
-../../timert build ../log-gcc-build make $MAKEOPTS all-gcc && \
-../../timert install ../log-gcc-install make install-gcc && \
+../../timert build ../log-gcc-build make $MAKEOPTS all-gcc ${EXTRA_BUILDTARGET} && \
+../../timert install ../log-gcc-install make install-gcc ${EXTRA_INSTALLTARGET} && \
 $ECHO \
 ) || fatal 102

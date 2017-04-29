@@ -41,6 +41,7 @@ case $ARCH in
 	*-linux*)	TARGET=$ARCH ;;
 
 	arc)		TARGET=arc-elf ;;
+	arcv2)		TARGET=arc-elf ;;
 	arm)		TARGET=arm-linux-gnueabi ;;
 	armhf)		TARGET=arm-linux-gnueabihf ;;
 	arm64)		TARGET=aarch64-linux ;;
@@ -61,7 +62,7 @@ case $ARCH in
 	*)		TARGET=$ARCH-linux ;;
 esac
 
-PREFIX="${PREFIX}/${TARGET}"
+PREFIX="${PREFIX}/${ARCH}"
 export PATH=$PREFIX/bin:$PATH
 
 $ECHO "Building $ARCH... (target $TARGET)"

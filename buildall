@@ -6,6 +6,7 @@
 BDIR=$( (cd `dirname $0` ; pwd))
 . $BDIR/config
 
+
 $ECHO "================== Primary platforms ========================="
 ./build "$@" arm multi_v5_defconfig
 ./build "$@" armhf # multi_v7_defconfig, which is default
