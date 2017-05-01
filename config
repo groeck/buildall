@@ -13,7 +13,9 @@ PREFIX=/home/groeck/tmp/buildall/gcc-6.3.0-nolibc
 
 # Extra configure flags
 EXTRA_BINUTILS_CONF=""
-EXTRA_GCC_CONF="--with-gmp=/home/groeck/src/buildall-dl/gmp-6.1.1 --with-mpfr=/home/groeck/src/buildall-dl/mpfr-3.1.4"
+EXTRA_GCC_CONF="--with-gmp=/home/groeck/src/buildall-dl/gmp-6.1.2 \
+	--with-mpfr=/home/groeck/src/buildall-dl/mpfr-3.1.5 \
+	--with-mpc=/home/groeck/src/buildall-dl/mpc-1.0.3"
 # EXTRA_GCC_CONF="--with-mpfr --with-gmp"
 # Ex.: EXTRA_GCC_CONF="--with-mpfr=/somewhere/mpfr-2.4.1 --with-gmp=/somewhere/gmp-4.2.4"
 
