@@ -6,8 +6,7 @@
 
 BDIR=$( (cd `dirname $0` ; pwd))
 . $BDIR/config
-
-PREFIX=${PREFIX}/${TARGET}
+. ${BDIR}/genprefix
 
 fatal() {
 	$ECHO -e "  \033[31mFAILED\033[0m"

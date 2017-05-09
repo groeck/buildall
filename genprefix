@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case $ARCH in
+	arc)		TDIR=arc-elf ;;
+	arcv2)		TDIR=arcv2-elf ;;
+	*)		TDIR=${TARGET} ;;
+esac
+
+PREFIX="${PREFIX}/${TDIR}"
