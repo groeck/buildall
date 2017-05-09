@@ -62,7 +62,7 @@ case $ARCH in
 	*)		TARGET=$ARCH-linux ;;
 esac
 
-PREFIX="${PREFIX}/${ARCH}"
+PREFIX="${PREFIX}/${TARGET}"
 export PATH=$PREFIX/bin:$PATH
 
 $ECHO "Building $ARCH... (target $TARGET)"
