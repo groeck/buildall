@@ -17,12 +17,17 @@ EXTRA_BUILDTARGET="all-target-libgcc"
 EXTRA_INSTALLTARGET="install-target-libgcc"
 KARCH=""
 
-case $TARGET in
-	arc-*)		TARGET_GCC_CONF="--with-cpu=arc700";;
-	arcv2-*)	TARGET_GCC_CONF="--with-cpu=archs";;
-	ia64-*)		TARGET_GCC_CONF="--with-system-libunwind";;
-	powerpc64le-*)	TARGET_GCC_CONF="--disable-multilib";;
-	m68k-*)		KARCH="m68k";;
+case $ARCH in
+	arc)		TARGET_GCC_CONF="--with-cpu=arc700"
+			EXTRA_BUILDTARGET=""
+			EXTRA_INSTALLTARGET=""
+			;;
+	arcv2)		TARGET_GCC_CONF="--with-cpu=archs"
+			EXTRA_BUILDTARGET=""
+			EXTRA_INSTALLTARGET=""
+			;;
+	ia64)		TARGET_GCC_CONF="--with-system-libunwind";;
+	m68k)		KARCH="m68k";;
 	tilegx-*|tilepro-*)
 			KARCH="tile";;
 esac

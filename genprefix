@@ -1,8 +1,8 @@
 #!/bin/sh
 
 case $ARCH in
-	arc)		TDIR=arc-elf ;;
-	arcv2)		TDIR=arcv2-elf ;;
+	arc)		TDIR=arc-linux ;;
+	arcv2)		TDIR=arcv2-linux ;;
 	*)		TDIR=${TARGET} ;;
 esac
 

@@ -9,11 +9,26 @@
 
 unsigned int start_time, stop_time;
 
+int digits = 2;
+
 static void print_time(void)
 {
 	int s = time(0) - start_time;
+	int minutes = s / 60;
+	int i;
 
-	printf("\b\b\b\b\b\b\b[%02d:%02d]", s / 60, s % 60);
+	printf("\b\b\b\b\b");
+	for (i = 0; i < digits; i++)
+		printf("\b");
+
+	printf("[%0*d:%02d]", digits, minutes, s % 60);
+
+	minutes /= 100;
+	digits = 2;
+	while (minutes) {
+	    digits++;
+	    minutes /= 10;
+	}
 }
 
 static void error(const char *s)
