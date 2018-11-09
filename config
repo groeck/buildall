@@ -5,13 +5,13 @@
 # Where are the various source trees
 BINUTILS_SRC=/home/groeck/src/buildall-dl/binutils-2.28
 # GCC_SRC=/home/groeck/src/buildall-dl/gcc-6.3.0
-GCC_SRC=/home/groeck/src/buildall-dl/gcc-7.1.0
+GCC_SRC=/home/groeck/src/buildall-dl/gcc-7.3.0
 # Only if you want to build kernels, ignore otherwise:
 KERNEL_SRC=/home/groeck/src/linux-staging
 
 # Where to install the cross toolchains
 # PREFIX=/home/groeck/tmp/buildall/gcc-6.3.0-nolibc
-PREFIX=/home/groeck/tmp/buildall/gcc-7.1.0-nolibc
+PREFIX=/home/groeck/tmp/buildall/gcc-7.3.0-nolibc
 
 # Extra configure flags
 EXTRA_BINUTILS_CONF=""
@@ -22,7 +22,7 @@ EXTRA_BINUTILS_CONF=""
 # Ex.: EXTRA_GCC_CONF="--with-mpfr=/somewhere/mpfr-2.4.1 --with-gmp=/somewhere/gmp-4.2.4"
 
 # Options for make
-MAKEOPTS="-j20"
+MAKEOPTS="-j30"
 # Example: MAKEOPTS=-j9
 
 # Compiler self-checks, use "release" for a fast compiler, use "yes,rtl,tree"
