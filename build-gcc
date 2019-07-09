@@ -19,15 +19,17 @@ KARCH=""
 
 case $ARCH in
 	arc)		TARGET_GCC_CONF="--with-cpu=arc700"
-			EXTRA_BUILDTARGET=""
-			EXTRA_INSTALLTARGET=""
+			# EXTRA_BUILDTARGET=""
+			# EXTRA_INSTALLTARGET=""
 			;;
 	arcv2)		TARGET_GCC_CONF="--with-cpu=archs"
-			EXTRA_BUILDTARGET=""
-			EXTRA_INSTALLTARGET=""
+			# EXTRA_BUILDTARGET=""
+			# EXTRA_INSTALLTARGET=""
 			;;
 	ia64)		TARGET_GCC_CONF="--with-system-libunwind";;
 	m68k)		KARCH="m68k";;
+	powerpc64le-*)  TARGET_GCC_CONF="--disable-multilib";;
+	sh)		TARGET_GCC_CONF="--with-multilib-list=m4,m4-nofpu,m4a,m4a-nofpu";;
 	tilegx-*|tilepro-*)
 			KARCH="tile";;
 esac
@@ -56,6 +58,6 @@ $ECHO -ne "       gcc:" && \
 	--enable-checking=$CHECKING \
 	$TARGET_GCC_CONF $EXTRA_GCC_CONF && \
 ../../timert build ../log-gcc-build make $MAKEOPTS all-gcc ${EXTRA_BUILDTARGET} && \
-../../timert install ../log-gcc-install make install-gcc ${EXTRA_INSTALLTARGET} && \
+../../timert install ../log-gcc-install make install-strip-gcc ${EXTRA_INSTALLTARGET} && \
 $ECHO \
 ) || fatal 102
