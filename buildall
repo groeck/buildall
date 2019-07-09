@@ -25,14 +25,17 @@ $ECHO "================== Secondary platforms ======================="
 $ECHO "================== Tertiary platforms ========================"
 ./build "$@" alpha
 ./build "$@" arc nsim_700_defconfig
+./build "$@" arcv2 axs103_defconfig
 ./build "$@" c6x
+# csky is not supported with gcc 8.3.0
 ./build "$@" csky
-# hexagon does not exist
 ./build "$@" h8300 edosk2674_defconfig
 ./build "$@" ia64
 ./build "$@" m68k
+# broken 8.3.0
 ./build "$@" nds32
 ./build "$@" nios2
+# broken for 8.3.0
 ./build "$@" openrisc
 ./build "$@" parisc
 ./build "$@" parisc64 a500_defconfig
