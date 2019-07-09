@@ -49,7 +49,7 @@ case $ARCH in
 	m68knommu)	TARGET=m68k-linux ;;
 	mn10300)	TARGET=am33_2.0-linux ;;
 	nds32)		TARGET=nds32le-linux ;;
-	openrisc)	TARGET=or1k-linux ;;
+	openrisc|or1k)	TARGET=or1k-linux ;;
 	parisc)		TARGET=hppa-linux ;;
 	parisc64)	TARGET=hppa64-linux ;;
 	ppc)		TARGET=powerpc-linux ;;
