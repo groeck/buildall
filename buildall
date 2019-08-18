@@ -56,14 +56,14 @@ $ECHO "================== Imaginary platforms ======================="
 # score
 # sh64
 
-# Removed from Linux:
-# avr32
-# blackfin
-# cris
-# frv
-# metag
-# m32r
-# mn10300
-# score
-# tilegx
-# tilepro
+# Removed from Linux. Just try to build to see if any still work
+# and might be useful for older kernel releases.
+./build "$@" avr32
+./build "$@" blackfin
+./build "$@" cris
+./build "$@" frv
+./build "$@" metag
+./build "$@" m32r
+./build "$@" mn10300
+./build "$@" tilegx
+./build "$@" tilepro
