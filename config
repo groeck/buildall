@@ -3,12 +3,12 @@
 
 
 # Where are the various source trees
-BINUTILS_SRC=/home/groeck/src/buildall-dl/binutils-2.34
+BINUTILS_SRC=/home/groeck/src/buildall-dl/binutils-2.35
 # GCC_SRC=/home/groeck/src/buildall-dl/gcc-6.3.0
 # GCC_SRC=/home/groeck/src/buildall-dl/gcc-7.4.0
 # GCC_SRC=/home/groeck/src/buildall-dl/gcc-8.3.0
 # GCC_SRC=/home/groeck/src/buildall-dl/gcc-9.3.0
-GCC_SRC=/home/groeck/src/buildall-dl/gcc-10.1.0
+GCC_SRC=/home/groeck/src/buildall-dl/gcc-10.2.0
 # Only if you want to build kernels, ignore otherwise:
 KERNEL_SRC=/home/groeck/src/linux-staging
 
@@ -17,7 +17,7 @@ KERNEL_SRC=/home/groeck/src/linux-staging
 # PREFIX=/home/groeck/tmp/buildall/gcc-7.4.0-nolibc
 # PREFIX=/home/groeck/tmp/buildall/gcc-8.3.0-nolibc
 # PREFIX=/home/groeck/tmp/buildall/gcc-9.3.0-nolibc
-PREFIX=/home/groeck/tmp/buildall/gcc-10.1.0-nolibc
+PREFIX=/home/groeck/tmp/buildall/gcc-10.2.0-nolibc
 
 # Extra configure flags
 EXTRA_BINUTILS_CONF=""
