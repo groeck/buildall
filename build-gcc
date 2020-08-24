@@ -32,6 +32,7 @@ case $ARCH in
 	sh)		TARGET_GCC_CONF="--with-multilib-list=m4,m4-nofpu,m4a,m4a-nofpu";;
 	tilegx-*|tilepro-*)
 			KARCH="tile";;
+	# x86_64)		TARGET_GCC_CONF="--disable-multilib";;
 esac
 
 # If necessary build and install kernel headers
