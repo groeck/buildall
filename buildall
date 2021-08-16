@@ -32,7 +32,7 @@ $ECHO "================== Tertiary platforms ========================"
 ./build "$@" h8300 edosk2674_defconfig
 ./build "$@" ia64
 ./build "$@" m68k
-# broken 8.3.0
+# broken 8.{2..5}.x
 ./build "$@" nds32
 ./build "$@" nios2
 # broken for 8.3.0
@@ -55,15 +55,15 @@ $ECHO "================== Imaginary platforms ======================="
 # Removed from GCC:
 # score
 # sh64
+# avr32
+# metag
+# tilegx
+# tilepro
 
 # Removed from Linux. Just try to build to see if any still work
 # and might be useful for older kernel releases.
-./build "$@" avr32
 ./build "$@" blackfin
 ./build "$@" cris
 ./build "$@" frv
-./build "$@" metag
 ./build "$@" m32r
 ./build "$@" mn10300
-./build "$@" tilegx
-./build "$@" tilepro
