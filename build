@@ -70,6 +70,7 @@ cd $ARCH
 
 case $ARCH in
 	armhf)		ARCH=arm ;;
+	microblaze*)	ARCH=microblaze ;;
 	mips64)		ARCH=mips ;;
 	parisc64)	ARCH=parisc ;;
 	powerpc*)	ARCH=powerpc ;;

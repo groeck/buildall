@@ -46,6 +46,7 @@ $ECHO "================== Tertiary platforms ========================"
 ./build "$@" xtensa
 $ECHO "================== Imaginary platforms ======================="
 ./build "$@" microblaze
+./build "$@" microblazeel
 
 
 # Not in GCC:
