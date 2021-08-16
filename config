@@ -1,27 +1,25 @@
 # Copy this file to "config" and edit these options to appropriate
 # values for your local setup.
 
-GCC_VERSION="10.3.0"
-# GCC_VERSION="10.2.0"
-
-BINUTILS_VERSION="2.36.1"
+GCC_VERSION="11.2.0"
+BINUTILS_VERSION="2.37"
 
 # Where are the various source trees
 BINUTILS_SRC="/home/groeck/src/buildall-dl/binutils-${BINUTILS_VERSION}"
 GCC_SRC="/home/groeck/src/buildall-dl/gcc-${GCC_VERSION}"
 
 # Only if you want to build kernels, ignore otherwise:
-KERNEL_SRC=/home/groeck/src/linux-staging
+# KERNEL_SRC=/home/groeck/src/linux-staging
 
 # Where to install the cross toolchains
 PREFIX="/home/groeck/tmp/buildall/gcc-${GCC_VERSION}-nolibc"
 
 # Extra configure flags
 EXTRA_BINUTILS_CONF=""
-EXTRA_GCC_CONF="--with-gmp=/home/groeck/src/buildall-dl/gmp-6.2.0 \
-	--with-mpfr=/home/groeck/src/buildall-dl/mpfr-4.0.2 \
+EXTRA_GCC_CONF="--with-gmp=/home/groeck/src/buildall-dl/gmp-6.2.1 \
+	--with-mpfr=/home/groeck/src/buildall-dl/mpfr-4.1.0 \
 	--enable-multilib \
-	--with-mpc=/home/groeck/src/buildall-dl/mpc-1.1.0"
+	--with-mpc=/home/groeck/src/buildall-dl/mpc-1.2.1"
 # EXTRA_GCC_CONF="--with-mpfr --with-gmp"
 # Ex.: EXTRA_GCC_CONF="--with-mpfr=/somewhere/mpfr-2.4.1 --with-gmp=/somewhere/gmp-4.2.4"
 
