@@ -55,6 +55,7 @@ case $ARCH in
 	ppc)		TARGET=powerpc-linux ;;
 	score)		TARGET=score-elf ;;
 	sh)		TARGET=sh4-linux ;;
+	sheb)		TARGET=sh4eb-linux ;;
 	shnommu)	TARGET=sh2-linux ;;
 	tile)		TARGET=tilegx-linux ;;
 	v850)		TARGET=v850e-linux ;;
@@ -75,7 +76,7 @@ case $ARCH in
 	parisc64)	ARCH=parisc ;;
 	powerpc*)	ARCH=powerpc ;;
 	riscv*)		ARCH=riscv ;;
-	shnommu)	ARCH=sh ;;
+	shnommu|sheb)	ARCH=sh ;;
 esac
 
 export ARCH TARGET DEFCONFIG

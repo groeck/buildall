@@ -42,6 +42,7 @@ $ECHO "================== Tertiary platforms ========================"
 ./build "$@" riscv32 riscv32_defconfig
 ./build "$@" riscv64
 ./build "$@" sh se7750_defconfig
+./build "$@" sheb se7750_defconfig
 ./build "$@" shnommu se7619_defconfig
 ./build "$@" xtensa
 $ECHO "================== Imaginary platforms ======================="
