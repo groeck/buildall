@@ -31,6 +31,7 @@ $ECHO "================== Tertiary platforms ========================"
 ./build "$@" csky
 ./build "$@" h8300 edosk2674_defconfig
 ./build "$@" ia64
+./build "$@" loongarch64
 ./build "$@" m68k
 # broken 8.{2..5}.x
 ./build "$@" nds32
@@ -61,11 +62,11 @@ $ECHO "================== Imaginary platforms ======================="
 # metag
 # tilegx
 # tilepro
+# cris
 
 # Removed from Linux. Just try to build to see if any still work
 # and might be useful for older kernel releases.
 ./build "$@" blackfin
-./build "$@" cris
 ./build "$@" frv
 ./build "$@" m32r
 ./build "$@" mn10300
