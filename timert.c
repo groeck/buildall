@@ -31,13 +31,13 @@ static void print_time(void)
 	}
 }
 
-static void error(const char *s)
+static __attribute__ ((noreturn)) void error(const char *s)
 {
 	perror(s);
 	exit(1);
 }
 
-static void sigchld_handler(int signo, siginfo_t *si, void *uc)
+static void sigchld_handler(__attribute__((unused)) int signo, siginfo_t *si, __attribute__((unused)) void *uc)
 {
 //	fprintf(stderr, "code %d, status %d\n", si->si_code, si->si_status);
 	switch (si->si_code) {
@@ -92,6 +92,7 @@ int main(int argc, char **argv)
 	switch (pid = fork()) {
 		case -1:
 			error("fork()");
+			break;
 
 		case 0:
 			fd = creat(argv[2], 0666);
@@ -109,6 +110,8 @@ int main(int argc, char **argv)
 
 			if (execvp(argv[3], argv+3))
 				error("execvp()");
+
+			break;
 
 		default:
 			for (;;) {
