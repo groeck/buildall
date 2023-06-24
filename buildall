@@ -69,5 +69,6 @@ $ECHO "================== Imaginary platforms ======================="
 # and might be useful for older kernel releases.
 ./build "$@" blackfin
 ./build "$@" frv
+# no longer supported in gcc 12
 ./build "$@" m32r
 ./build "$@" mn10300
