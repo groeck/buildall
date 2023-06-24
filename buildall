@@ -31,6 +31,7 @@ $ECHO "================== Tertiary platforms ========================"
 ./build "$@" csky
 ./build "$@" h8300 edosk2674_defconfig
 ./build "$@" ia64
+# Needs 12.1 or later. Fails to build in 12.1.
 ./build "$@" loongarch64
 ./build "$@" m68k
 # broken 8.{2..5}.x
