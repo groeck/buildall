@@ -27,17 +27,14 @@ $ECHO "================== Tertiary platforms ========================"
 ./build "$@" arc nsim_700_defconfig
 ./build "$@" arcv2 axs103_defconfig
 ./build "$@" c6x
-# csky is not supported with gcc 8.3.0
 ./build "$@" csky
-./build "$@" h8300 edosk2674_defconfig
-./build "$@" ia64
+# ./build "$@" h8300 edosk2674_defconfig
+# ./build "$@" ia64
 # Needs 12.1 or later. Fails to build in 12.1.
 ./build "$@" loongarch64
 ./build "$@" m68k
-# broken 8.{2..5}.x
 ./build "$@" nds32
 ./build "$@" nios2
-# broken for 8.3.0
 ./build "$@" openrisc
 ./build "$@" parisc
 ./build "$@" parisc64 a500_defconfig
@@ -54,7 +51,6 @@ $ECHO "================== Imaginary platforms ======================="
 
 # Not in GCC:
 # hexagon
-# unicore32
 
 # Removed from GCC:
 # score
@@ -67,8 +63,8 @@ $ECHO "================== Imaginary platforms ======================="
 
 # Removed from Linux. Just try to build to see if any still work
 # and might be useful for older kernel releases.
-./build "$@" blackfin
-./build "$@" frv
+# ./build "$@" blackfin
+# ./build "$@" frv
 # no longer supported in gcc 12
-./build "$@" m32r
-./build "$@" mn10300
+# ./build "$@" m32r
+# ./build "$@" mn10300
