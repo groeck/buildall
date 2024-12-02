@@ -1,25 +1,30 @@
 # Copy this file to "config" and edit these options to appropriate
 # values for your local setup.
 
-GCC_VERSION="13.3.0"
-BINUTILS_VERSION="2.42"
+# GCC_VERSION="13.3.0"
+# BINUTILS_VERSION="2.42"
+GCC_VERSION="11.5.0"
+BINUTILS_VERSION="2.40"
+
+BASEDIR="/opt/buildall"
+DOWNLOAD="${BASEDIR}/download"
 
 # Where are the various source trees
-BINUTILS_SRC="/home/groeck/src/buildall-dl/binutils-${BINUTILS_VERSION}"
-GCC_SRC="/home/groeck/src/buildall-dl/gcc-${GCC_VERSION}"
+BINUTILS_SRC="${DOWNLOAD}/binutils-${BINUTILS_VERSION}"
+GCC_SRC="${DOWNLOAD}/gcc-${GCC_VERSION}"
 
 # Only if you want to build kernels, ignore otherwise:
 # KERNEL_SRC=/home/groeck/src/linux-staging
 
 # Where to install the cross toolchains
-PREFIX="/home/groeck/tmp/buildall/gcc-${GCC_VERSION}-${BINUTILS_VERSION}-nolibc"
+PREFIX="${BASEDIR}/bin/gcc-${GCC_VERSION}-${BINUTILS_VERSION}-nolibc"
 
 # Extra configure flags
 EXTRA_BINUTILS_CONF=""
-EXTRA_GCC_CONF="--with-gmp=/home/groeck/src/buildall-dl/gmp-6.2.1 \
-	--with-mpfr=/home/groeck/src/buildall-dl/mpfr-4.1.0 \
+EXTRA_GCC_CONF="--with-gmp=${DOWNLOAD}/gmp-6.2.1 \
+	--with-mpfr=${DOWNLOAD}/mpfr-4.1.0 \
 	--enable-multilib \
-	--with-mpc=/home/groeck/src/buildall-dl/mpc-1.2.1"
+	--with-mpc=${DOWNLOAD}/mpc-1.2.1"
 # EXTRA_GCC_CONF="--with-mpfr --with-gmp"
 # Ex.: EXTRA_GCC_CONF="--with-mpfr=/somewhere/mpfr-2.4.1 --with-gmp=/somewhere/gmp-4.2.4"
 
