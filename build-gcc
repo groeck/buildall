@@ -59,6 +59,7 @@ $ECHO -ne "       gcc:" && \
 	--disable-decimal-float --disable-libquadmath \
 	--disable-libatomic --disable-libcc1 --disable-libmpx \
 	--enable-checking=$CHECKING \
+	--disable-plugin \
 	$TARGET_GCC_CONF $EXTRA_GCC_CONF && \
 ../../timert build ../log-gcc-build make $MAKEOPTS all-gcc ${EXTRA_BUILDTARGET} && \
 ../../timert install ../log-gcc-install make install-strip-gcc ${EXTRA_INSTALLTARGET} && \
