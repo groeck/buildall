@@ -6,65 +6,47 @@
 BDIR=$( (cd `dirname $0` ; pwd))
 . $BDIR/config
 
-
 $ECHO "================== Primary platforms ========================="
 ./build "$@" arm multi_v5_defconfig
 ./build "$@" armhf # multi_v7_defconfig, which is default
+./build "$@" arm64
 ./build "$@" i386
+./build "$@" riscv32 riscv32_defconfig
+./build "$@" riscv64
+./build "$@" x86_64
+$ECHO "================== Secondary platforms ======================="
 ./build "$@" mips
 ./build "$@" mips64 ip32_defconfig
 ./build "$@" powerpc ppc6xx_defconfig
 ./build "$@" powerpc64
 ./build "$@" powerpc64le ppc64le_defconfig
+./build "$@" s390
 ./build "$@" sparc
 ./build "$@" sparc64
-./build "$@" x86_64
-$ECHO "================== Secondary platforms ======================="
-./build "$@" arm64
-./build "$@" s390
 $ECHO "================== Tertiary platforms ========================"
 ./build "$@" alpha
 ./build "$@" arc nsim_700_defconfig
 ./build "$@" arcv2 axs103_defconfig
-./build "$@" c6x
 ./build "$@" csky
-# ./build "$@" h8300 edosk2674_defconfig
-# ./build "$@" ia64
 # Needs 12.1 or later. Fails to build in 12.1.
 ./build "$@" loongarch64
 ./build "$@" m68k
-./build "$@" nds32
 ./build "$@" nios2
 ./build "$@" openrisc
 ./build "$@" parisc
 ./build "$@" parisc64 a500_defconfig
-./build "$@" riscv32 riscv32_defconfig
-./build "$@" riscv64
 ./build "$@" sh se7750_defconfig
 ./build "$@" sheb se7750_defconfig
 ./build "$@" shnommu se7619_defconfig
 ./build "$@" xtensa
+$ECHO "================== Obsolete platforms ======================="
+# ./build "$@" c6x			# No longer tested
+# ./build "$@" ia64			# No longer tested
+./build "$@" nds32			# removed in Linux v6.1+
+./build "$@" h8300 edosk2674_defconfig	# removed in Linux v6.1+
 $ECHO "================== Imaginary platforms ======================="
 ./build "$@" microblaze
 ./build "$@" microblazeel
 
-
 # Not in GCC:
 # hexagon
-
-# Removed from GCC:
-# score
-# sh64
-# avr32
-# metag
-# tilegx
-# tilepro
-# cris
-
-# Removed from Linux. Just try to build to see if any still work
-# and might be useful for older kernel releases.
-# ./build "$@" blackfin
-# ./build "$@" frv
-# no longer supported in gcc 12
-# ./build "$@" m32r
-# ./build "$@" mn10300
